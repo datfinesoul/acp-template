@@ -89,7 +89,7 @@ ACP-owned skills use the `acp-` prefix. User and project skills may use other na
 
 ## Complexity estimates
 
-Report complexity as exactly one of: `low`, `medium`, `hard`, `skip`. Never use hours or other time estimates.
+Give a complexity estimate before major work starts, so the user can decide if the work is worth it. Report complexity as exactly one of: `low`, `medium`, `hard`, `too-complex`. Use `too-complex` when the work is too large or too risky to be worth the change. Do not give an estimate after the work is done. Never use hours or other time estimates.
 
 ## Git rules
 

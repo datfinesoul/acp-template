@@ -66,8 +66,11 @@ This repository is a generic ACP (Pi agent control plane) super-repo. It holds i
 
 ## Complexity estimates
 
-- Report complexity as exactly one of: `low`, `medium`, `hard`, `skip`.
-- Use `skip` when an estimate is not useful or the work is out of scope.
+- Give a complexity estimate before major work starts. The user then decides if the work is worth it.
+- Do not give an estimate after the work is done. Report the result, not the size of the work.
+- Report complexity as exactly one of: `low`, `medium`, `hard`, `too-complex`.
+- Use `too-complex` when the work is too large or too risky to be worth the change.
+- Omit the estimate only for trivial work, such as a question or a single small edit.
 - Explain the main source of complexity when it helps.
 - Never use hours or other time estimates.
 
@@ -89,6 +92,7 @@ This repository is a generic ACP (Pi agent control plane) super-repo. It holds i
 ## New repositories
 
 - Load `acp-repo-template` and follow it.
+- Ask the user for the repository visibility before you apply any setting. Never default to `public`.
 - Apply `templates/repository-settings.json` and `templates/default-branch-ruleset.json`.
 - Set the repository description and topics.
 - Verify the effective settings after you apply them.
