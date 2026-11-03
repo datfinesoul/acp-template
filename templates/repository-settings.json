@@ -3,8 +3,6 @@
   "has_issues": true,
   "has_projects": false,
   "has_wiki": false,
-  "has_discussions": false,
-  "has_downloads": false,
   "is_template": false,
   "pull_request_creation_policy": "all",
   "allow_merge_commit": false,
@@ -26,12 +24,6 @@
     },
     "secret_scanning_non_provider_patterns": {
       "status": "disabled"
-    },
-    "secret_scanning_validity_checks": {
-      "status": "disabled"
-    },
-    "dependabot_security_updates": {
-      "status": "enabled"
     }
   }
 }

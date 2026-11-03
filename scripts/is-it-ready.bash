@@ -3,6 +3,11 @@
 # Check the ACP super-repo skeleton.
 # Runs deterministic checks only and prints a suggested fix for every failure.
 #
+# The checks encode the template baseline. Projects customize this script as
+# they grow. When the project intentionally changes a file that a check
+# validates, update the check. Do not revert a project file to satisfy a
+# stale check.
+#
 # Usage:
 #   scripts/is-it-ready.bash
 #
@@ -119,7 +124,7 @@ if [[ -f "$project_settings" ]]; then
   ' "$project_settings" 2>/dev/null; then
     report ok ".pi/settings.json has the baseline keys"
   else
-    report fail ".pi/settings.json is missing baseline keys" "set enableSkillCommands to true and include the default tools"
+    report fail ".pi/settings.json is missing baseline keys" "restore the keys, or update this check to match the intended project settings"
   fi
 fi
 
@@ -170,14 +175,15 @@ else
     report fail ".gitmodules is not valid" "fix the syntax in .gitmodules"
   else
     report ok ".gitmodules is valid"
-    submodule_entries=$(git config --file "$gitmodules" --get-regexp '^submodule\..*\.path$' || true)
-    if [[ -z "$submodule_entries" ]]; then
+    submodule_keys=$(git config --file "$gitmodules" --name-only --get-regexp '^submodule\..*\.path$' || true)
+    if [[ -z "$submodule_keys" ]]; then
       report ok "no submodules configured (template state)"
     else
-    while read -r key path; do
-      [[ -z "${key:-}" ]] && continue
+    while IFS= read -r key; do
+      [[ -z "$key" ]] && continue
       name=${key#submodule.}
       name=${name%.path}
+      path=$(git config --file "$gitmodules" --get "$key" || true)
       absolute="$root/$path"
       if [[ "$path" == */* ]]; then
         report fail "$path is a nested submodule" "move the submodule to the repository root"
@@ -201,7 +207,7 @@ else
       else
         report fail "$path has no tracking branch" "set submodule.$name.branch in .gitmodules"
       fi
-    done <<< "$submodule_entries"
+    done <<< "$submodule_keys"
     fi
   fi
 fi

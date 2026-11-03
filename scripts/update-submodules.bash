@@ -63,21 +63,32 @@ if [[ ! -f "$gitmodules" ]]; then
   exit 2
 fi
 
-submodule_entries=$(git config --file "$gitmodules" --get-regexp '^submodule\..*\.path$')
+submodule_keys=$(git config --file "$gitmodules" --name-only --get-regexp '^submodule\..*\.path$')
 config_status=$?
 if (( config_status > 1 )); then
   echo "Could not read submodule paths from $gitmodules" >&2
   exit 2
 fi
-if [[ -z "$submodule_entries" ]]; then
+if [[ -z "$submodule_keys" ]]; then
   echo "No submodules configured in $gitmodules"
   print_summary
   exit 0
 fi
 
-while read -r key submodule_path; do
+while IFS= read -r key; do
+  [[ -z "$key" ]] && continue
   submodule_name=${key#submodule.}
   submodule_name=${submodule_name%.path}
+  submodule_path=$(git config --file "$gitmodules" --get "$key" || true)
+
+  if [[ -z "$submodule_path" ]]; then
+    echo "==> $submodule_name"
+    echo "    Could not read the submodule path." >&2
+    failed+=("$submodule_name: could not read the submodule path")
+    status=1
+    continue
+  fi
+
   absolute_path="$repository_root/$submodule_path"
 
   echo "==> $submodule_path"
@@ -170,7 +181,7 @@ while read -r key submodule_path; do
   fi
   record_branch_warning "$submodule_path" "$absolute_path" "$branch"
 
-done <<< "$submodule_entries"
+done <<< "$submodule_keys"
 
 print_summary
 exit "$status"

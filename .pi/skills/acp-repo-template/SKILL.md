@@ -29,12 +29,13 @@ The settings payload does not set `visibility`. Ask the user for the intended vi
    - `.pi/skills/`
    - `scripts/`
    - `templates/`
-4. Apply `templates/repository-settings.json` with `PATCH /repos/<owner>/<repo>`. Add the `visibility` value that the user confirmed.
-5. Set the complete topic list with `PUT /repos/<owner>/<repo>/topics`.
-6. Apply `templates/default-branch-ruleset.json` with `POST /repos/<owner>/<repo>/rulesets` only when an equivalent ruleset does not exist.
-7. Set the repository description. Use a short description from the user or from the repository purpose. Do not overwrite an existing description without reporting the mismatch.
-8. Fetch the repository, topics, and ruleset through the API. Verify that the effective configuration matches the template. Verify that the visibility matches the value that the user confirmed.
-9. Report the result. The user reviews and commits.
+4. Apply `templates/repository-settings.json` with `PATCH /repos/<owner>/<repo>`. Add the `visibility` value that the user confirmed. Only fields that this endpoint accepts belong in the payload. The endpoint ignores unknown fields without an error.
+5. Enable Dependabot security updates with `PUT /repos/<owner>/<repo>/automated-security-fixes`. `PATCH /repos/<owner>/<repo>` has no field for this setting.
+6. Set the complete topic list with `PUT /repos/<owner>/<repo>/topics`.
+7. Apply `templates/default-branch-ruleset.json` with `POST /repos/<owner>/<repo>/rulesets` only when an equivalent ruleset does not exist.
+8. Set the repository description. Use a short description from the user or from the repository purpose. Do not overwrite an existing description without reporting the mismatch.
+9. Fetch the repository, topics, and ruleset through the API. Verify that the effective configuration matches the template. Verify that the visibility matches the value that the user confirmed. Verify automated security fixes with `GET /repos/<owner>/<repo>/automated-security-fixes`.
+10. Report the result. The user reviews and commits.
 
 ## Topics and description
 

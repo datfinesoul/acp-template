@@ -79,6 +79,7 @@ This repository is a generic ACP (Pi agent control plane) super-repo. It holds i
 - Run `scripts/is-it-ready.bash` before you report work as done.
 - The script checks the super-repo only. It does not test submodule internals.
 - The script is intentionally minimal. Add checks as the project grows.
+- The checks encode the template baseline. When the project intentionally changes a file that a check validates, update the check. Do not revert a project file to satisfy a stale check.
 - Resolve every `[fail]`. Review every `[warn]`.
 
 ## Repository README
