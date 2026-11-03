@@ -22,7 +22,9 @@ The settings payload does not set `visibility`. Ask the user for the intended vi
 2. Ask the user for the repository visibility. This step is mandatory. Do not continue until the user gives the visibility. Do not default to `public`.
 3. Create the repository skeleton from this template:
    - `AGENTS.md`
+   - `LICENSE`
    - `docs/README.md` as the temporary bootstrap README
+   - `.github/PULL_REQUEST_TEMPLATE.md`
    - `.gitignore`
    - `.gitmodules`
    - `.pi/settings.json`

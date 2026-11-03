@@ -1,7 +1,6 @@
 ---
 name: acp-ste100
 description: "Default writing standard for all agent-authored text in an ACP repository: documentation, user replies, user feedback, code comments, and pull request text. Use STE-flavored mode for explanatory prose and strict mode for procedures. Do not rewrite verbatim user text, code, identifiers, paths, or command syntax. The user can override this standard for a request or thread."
-version: 0.4.0
 license: MIT
 compatibility: "Python 3 is required only for the optional structural linter."
 metadata:

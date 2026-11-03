@@ -12,28 +12,11 @@ ACP means agent control plane. An ACP repository holds the instructions, configu
 
 ## What this template contains
 
-```text
-.
-├── AGENTS.md
-├── docs/README.md
-├── .gitignore
-├── .gitmodules
-├── .pi/
-│   ├── settings.json
-│   └── skills/
-│       ├── acp-repo-template/
-│       ├── acp-ste100/
-│       └── acp-submodule-workflow/
-├── scripts/
-│   ├── is-it-ready.bash
-│   └── update-submodules.bash
-└── templates/
-    ├── repository-settings.json
-    └── default-branch-ruleset.json
-```
-
 - `AGENTS.md` is the always-loaded policy file.
+- `LICENSE` is the MIT license for this template.
 - `docs/README.md` is the temporary bootstrap README. Delete it after the root README exists.
+- `.github/PULL_REQUEST_TEMPLATE.md` is the pull request template. It holds hidden agent instructions for the PR text.
+- `assets/` holds the social preview source and the rendered image. Upload the image in the repository settings under Social preview.
 - `.pi/settings.json` holds the committed Pi project settings.
 - `.pi/skills/` holds ACP-owned skills. The `acp-` prefix is mandatory for these skills.
 - `scripts/is-it-ready.bash` runs the minimal super-repo readiness checks.

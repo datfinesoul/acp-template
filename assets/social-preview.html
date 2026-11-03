@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ACP template social preview</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 640px; height: 320px; overflow: hidden; }
+  body {
+    position: relative;
+    background-color: #16457a;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+      linear-gradient(rgba(255, 255, 255, 0.13) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.13) 1px, transparent 1px);
+    background-size: 24px 24px, 24px 24px, 120px 120px, 120px 120px;
+    color: #ffffff;
+    font-family: ui-monospace, "DejaVu Sans Mono", monospace;
+  }
+  .frame {
+    position: absolute;
+    inset: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+  }
+  .cross {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background:
+      linear-gradient(#ffffff, #ffffff) center / 100% 2px no-repeat,
+      linear-gradient(#ffffff, #ffffff) center / 2px 100% no-repeat;
+  }
+  .cross.tl { left: 7px; top: 7px; }
+  .cross.tr { left: 619px; top: 7px; }
+  .cross.bl { left: 7px; top: 299px; }
+  .cross.br { left: 619px; top: 299px; }
+  .meta { position: absolute; left: 34px; top: 32px; width: 170px; }
+  .label {
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 12px;
+  }
+  .label.first { margin-top: 0; }
+  .value { font-size: 13px; font-weight: 700; letter-spacing: 0.04em; margin-top: 3px; }
+  .note { font-size: 10.5px; line-height: 1.55; color: rgba(255, 255, 255, 0.82); margin-top: 3px; }
+  .diagram { position: absolute; left: 216px; top: 44px; }
+  .license { position: absolute; left: 34px; top: 284px; font-size: 11px; letter-spacing: 0.08em; }
+  .titleblock {
+    position: absolute;
+    right: 26px;
+    bottom: 26px;
+    display: grid;
+    grid-template-columns: 118px 84px;
+    border-top: 1.5px solid #ffffff;
+    border-left: 1.5px solid #ffffff;
+  }
+  .titleblock div {
+    border-right: 1.5px solid #ffffff;
+    border-bottom: 1.5px solid #ffffff;
+    padding: 5px 8px;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+  }
+  .titleblock .strong { font-weight: 700; font-size: 11px; }
+</style>
+</head>
+<body>
+  <div class="frame"></div>
+  <span class="cross tl"></span><span class="cross tr"></span>
+  <span class="cross bl"></span><span class="cross br"></span>
+
+  <div class="meta">
+    <div class="label first">PROJECT</div>
+    <div class="value">DATFINESOUL / ACP-TEMPLATE</div>
+    <div class="label">NOTE</div>
+    <div class="note">INSTRUCTIONS, CONFIGURATION, AND SKILLS THAT DIRECT AI CODING AGENTS. PI IMPLEMENTATION. APPLICATION CODE LIVES IN GIT SUBMODULES.</div>
+  </div>
+
+  <svg class="diagram" width="384" height="204" viewBox="0 0 384 204" fill="none">
+    <g stroke="#ffffff" stroke-width="1.6">
+      <rect x="142" y="8" width="100" height="26" />
+      <rect x="152" y="82" width="80" height="40" />
+      <rect x="8" y="82" width="92" height="26" />
+      <rect x="8" y="158" width="92" height="26" />
+      <rect x="284" y="158" width="92" height="26" />
+      <polyline points="192,34 192,82" />
+      <polyline points="152,102 100,102" />
+      <polyline points="176,122 176,171 100,171" />
+      <polyline points="232,102 330,102 330,158" />
+    </g>
+    <g fill="#ffffff">
+      <circle cx="192" cy="82" r="3" />
+      <circle cx="152" cy="102" r="3" />
+      <circle cx="176" cy="122" r="3" />
+      <circle cx="232" cy="102" r="3" />
+      <circle cx="100" cy="171" r="3" />
+      <circle cx="330" cy="158" r="3" />
+    </g>
+    <g fill="#ffffff" font-family="monospace" font-size="11.5" text-anchor="middle" dominant-baseline="middle">
+      <text x="192" y="21">AGENTS.MD</text>
+      <text x="192" y="102" font-size="15" font-weight="bold">ACP</text>
+      <text x="54" y="95">TEMPLATES/</text>
+      <text x="54" y="171">.PI/SKILLS/</text>
+      <text x="330" y="171">SCRIPTS/</text>
+    </g>
+  </svg>
+
+  <div class="license">LICENSE: MIT</div>
+
+  <div class="titleblock">
+    <div class="strong">ACP TEMPLATE</div>
+    <div>SCALE 1:1</div>
+    <div>SUPER-REPO</div>
+    <div>SHEET 01</div>
+  </div>
+</body>
+</html>
