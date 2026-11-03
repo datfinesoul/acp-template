@@ -1,6 +1,8 @@
 # ACP template
 
-This repository is a generic ACP (Pi agent control plane) super-repo. It holds instructions, configuration, and Pi resources. Application code lives in Git submodules.
+ACP means agent control plane. An ACP repository holds the instructions, configuration, and skills that direct AI coding agents. This repository is a generic ACP super-repo. The current implementation is Pi-specific. The ACP concept is not tied to Pi.
+
+This repository holds instructions, configuration, and Pi resources. Application code lives in Git submodules.
 
 ## Read this first
 

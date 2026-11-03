@@ -6,6 +6,10 @@ The real README belongs at `../README.md` in the repository root. Create that fi
 
 This file is temporary. It exists only to start a new ACP repository. After the root README exists, this file has no purpose. Delete it.
 
+## What ACP means
+
+ACP means agent control plane. An ACP repository holds the instructions, configuration, and skills that direct AI coding agents. The current implementation is Pi-specific. The ACP concept is not tied to Pi.
+
 ## What this template contains
 
 ```text
