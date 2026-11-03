@@ -1,0 +1,6 @@
+.DS_Store
+.pi/npm/
+.pi/git/
+.env
+.env.*
+!.env.example

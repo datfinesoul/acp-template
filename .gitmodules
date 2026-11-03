@@ -1,0 +1,9 @@
+# Add each submodule with:
+#   git submodule add -b main <url> <path>
+#   git config -f .gitmodules submodule.<path>.ignore all
+#
+# Each active entry must have:
+#   path = <path>
+#   url = <url>
+#   branch = main
+#   ignore = all
