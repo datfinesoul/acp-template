@@ -44,6 +44,30 @@ The settings payload does not set `visibility`. Ask the user for the intended vi
 - Set a small topic list that matches the repository.
 - Do not copy Pi extension module topics unless the repository is a Pi module.
 - Keep the description specific and non-empty.
+- Keep the social preview title at 60 characters or fewer. This is a preview guideline, not a GitHub field limit.
+- Measure `GitHub - <owner>/<repo>: <description>`, including spaces and punctuation. Do not include the browser title suffix ` · GitHub`.
+- Put the repository topic first in the description. Explain unfamiliar abbreviations. Do not repeat words already clear from the repository name.
+- Verify the live `og:title` or `twitter:title` after the change. Do not measure the HTML `<title>` instead.
+- If the full title cannot fit without losing meaning, report the conflict. Do not rename the repository without approval.
+
+### Title measurement example
+
+For `datfinesoul/acp-template`, the description `Agent control plane (ACP)` produces a 60-character preview title:
+
+```text
+GitHub - datfinesoul/acp-template: Agent control plane (ACP)
+```
+
+Calculate the length before you apply the description:
+
+```python
+owner = "datfinesoul"
+repo = "acp-template"
+description = "Agent control plane (ACP)"
+title = f"GitHub - {owner}/{repo}: {description}"
+print(title)
+print(len(title))  # 60
+```
 
 ## README rule
 
