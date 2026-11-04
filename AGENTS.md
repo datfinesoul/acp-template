@@ -66,6 +66,26 @@ This repository holds instructions, configuration, and Pi resources. Application
 - Keep prose paragraphs on one line. Do not hard-wrap Markdown.
 - Use GitHub Flavored Markdown.
 
+## Response item identifiers
+
+Use category-prefixed identifiers when a response contains multiple lists. Each item must have an unambiguous reference.
+
+| Prefix | Category | Meaning |
+|---|---|---|
+| `F1` | Finding | Supported by inspected evidence |
+| `P1` | Proposal | Recommended approach, not yet approved |
+| `Q1` | Question | Requires user input |
+| `D1` | Decision | Explicitly agreed |
+| `A1` | Action | Next step, with approval status stated |
+| `B1` | Blocker | Prevents progress |
+| `R1` | Risk | Potential adverse outcome |
+| `V1` | Verification | Check or acceptance criterion |
+
+- Restart numbering within each category for each response.
+- Keep identifiers unique within the response, including across sections.
+- Use only the categories needed. Do not add sections only to use the prefixes.
+- Reserve plain numbered lists for procedures whose order matters.
+
 ## Complexity estimates
 
 - Give a complexity estimate before major work starts. The user then decides if the work is worth it.
